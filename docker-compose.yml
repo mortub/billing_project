@@ -1,12 +1,12 @@
 version: "3.4"
 
 services:
-  api:
+  backend:
     build:
-      context: .
+      context: ./backend
       target: development
     volumes:
-      - ./:/usr/src/app
+      - ./backend:/usr/src/app
       - /usr/src/app/node_modules
     ports:
       - 4000:4000
