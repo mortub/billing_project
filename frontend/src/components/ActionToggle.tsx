@@ -6,7 +6,7 @@ import { ReducerActionTypes } from '../@types/enums/ReducerActionsEnum';
 
 
 export const ActionToggle = () =>{
-  const { state, dispatch } = useContext(AppContext) as StateAndDispatch;
+  const { dispatch } = useContext(AppContext) as StateAndDispatch;
 
   const onChangeAction = (event: React.ChangeEvent<HTMLSelectElement>) =>{
     const action = event.target.value as Actions

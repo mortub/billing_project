@@ -1,7 +1,6 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import { Entities } from '../@types/enums/EntitiesEnum';
 import { AppContext } from '../context/AppContext';
-import { AppContextType } from '../@types/AppContextType';
 import { ReducerActionTypes } from '../@types/enums/ReducerActionsEnum';
 import { StateAndDispatch } from '../@types/StateAndDispatchType';
 
