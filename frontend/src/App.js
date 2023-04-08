@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import { ActionToggle } from "./components/ActionToggle";
+import { EntityToggle } from "./components/EntityToggle";
+import { AppProvider } from "./context/AppContext";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppProvider>
+      <div>
+        <EntityToggle />
+        <ActionToggle />
+      </div>
+    </AppProvider>
   );
 }
 
