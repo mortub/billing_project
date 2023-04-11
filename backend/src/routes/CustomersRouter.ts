@@ -3,7 +3,7 @@ import { CustomersController } from '../controllers/CustomersController';
 
 export const customersRouter = Router();
 
-customersRouter.post('/customers/:id', CustomersController.createCustomer);
+customersRouter.post('/customers', CustomersController.createCustomer);
 
 customersRouter.patch('/customers/:id', CustomersController.updateCustomer);
 

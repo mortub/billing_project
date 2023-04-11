@@ -3,7 +3,7 @@ import { Router } from 'express';
 
 export const transactionsRouter = Router();
 
-transactionsRouter.post('/transactions/:id', TransactionsController.createTransaction);
+transactionsRouter.post('/transactions', TransactionsController.createTransaction);
 
 transactionsRouter.patch('/transactions/:id', TransactionsController.updateTransaction);
 

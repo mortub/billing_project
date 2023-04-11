@@ -32,6 +32,7 @@ Transaction.init(
     },
     customer_id: {
       type: DataTypes.STRING,
+      unique: true,
     },
   },
   { sequelize },

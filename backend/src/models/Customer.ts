@@ -26,6 +26,7 @@ Customer.init(
     customer_id: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
     },
     first_name: {
       type: DataTypes.STRING,
