@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Actions } from '../@types/enums/ActionsEnums';
+import { Actions } from '../@types/enums/ActionsEnum';
 import { AppContext } from '../context/AppContext';
 import { StateAndDispatch } from '../@types/StateAndDispatchType';
 import { ReducerActionTypes } from '../@types/enums/ReducerActionsEnum';

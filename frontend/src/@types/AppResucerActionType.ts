@@ -1,4 +1,4 @@
-import { Actions } from "./enums/ActionsEnums";
+import { Actions } from "./enums/ActionsEnum";
 import { Entities } from "./enums/EntitiesEnum";
 import { ReducerActionTypes } from "./enums/ReducerActionsEnum";
 

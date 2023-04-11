@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Entities } from "../@types/enums/EntitiesEnum";
-import { Actions } from "../@types/enums/ActionsEnums";
+import { Actions } from "../@types/enums/ActionsEnum";
 import { useReducer } from "react";
 import { AppReducer } from "../reducers/AppReducer";
 import { StateAndDispatch } from "../@types/StateAndDispatchType";
