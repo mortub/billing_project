@@ -40,5 +40,5 @@ Transaction.init(
 
 Transaction.belongsTo(Customer, {
   foreignKey: 'customer_id',
-  targetKey: 'customer_id',
+  targetKey: 'id',
 });

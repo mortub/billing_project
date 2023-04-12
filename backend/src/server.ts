@@ -1,4 +1,5 @@
 import express, { Express } from 'express';
+import cors from 'cors';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import { AppRouter } from './routes/AppRouter';
@@ -11,7 +12,7 @@ DBConnection.connectToDB();
 const port = process.env.PORT || 4000;
 
 app.use(bodyParser.json());
-
+app.use(cors());
 app.use(AppRouter);
 
 app.use((req, res, next) => {

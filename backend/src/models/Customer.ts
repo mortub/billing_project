@@ -4,7 +4,6 @@ import { sequelize } from './DBConnection';
 
 export class Customer extends Model {
   declare id: number;
-  declare customer_id: string;
   declare first_name: string;
   declare last_name: string;
   declare email: string;
@@ -21,10 +20,6 @@ Customer.init(
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
-      allowNull: false,
-    },
-    customer_id: {
-      type: DataTypes.STRING,
       allowNull: false,
       unique: true,
     },

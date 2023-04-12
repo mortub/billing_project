@@ -2,13 +2,13 @@ import { Request, Response } from 'express';
 import { CreateCustomerDTO } from '../utils/dtos/CreateCustomerDTO';
 import { UpdateCustomerDTO } from '../utils/dtos/UpdateCustomerDTO';
 import { Customer } from '../models/Customer';
-import { uuid } from 'uuidv4';
+// import { uuid } from 'uuidv4'; //TODO: remove that library
 
 export class CustomersController {
   public static async createCustomer(req: Request, res: Response) {
     const { first_name, last_name, email, gender, country, city, street, phone } = req.body as CreateCustomerDTO;
     const customer = await Customer.create({
-      customer_id: uuid(),
+      // customer_id: uuid(),
       first_name,
       last_name,
       email,
@@ -36,7 +36,7 @@ export class CustomersController {
         phone,
       },
       {
-        where: { customer_id: customerId },
+        where: { id: customerId },
       },
     );
     return res.send();
@@ -45,7 +45,7 @@ export class CustomersController {
   public static async deleteCustomer(req: Request, res: Response) {
     const customerId = req.params.id;
     await Customer.destroy({
-      where: { customer_id: customerId },
+      where: { id: customerId },
     });
     res.send();
   }
