@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { GenderEnum } from "../@types/enums/GenderEnum";
 import { useForm } from "../hooks/useForm";
 import { UpdateCustomerBody } from "../@types/UpdateCustomerBody";
+import { AppContext } from "../context/AppContext";
+import { StateAndDispatch } from "../@types/StateAndDispatchType";
+import { Actions } from "../@types/enums/ActionsEnum";
+import { Entities } from "../@types/enums/EntitiesEnum";
 
 export const UpdateCustomerForm = () => {
   const initialState: UpdateCustomerBody = {
@@ -15,8 +19,18 @@ export const UpdateCustomerForm = () => {
     phone: "",
   };
 
-  // getting the event handlers from our custom hook
-  const { onChange, values } = useForm(initialState);
+  const { onChange, values, setValues } = useForm(
+    initialState as UpdateCustomerBody
+  );
+  const { state } = useContext(AppContext) as StateAndDispatch;
+
+  useEffect(() => {
+    const shouldSetEntity =
+      state.action === Actions.UPDATE && state.entity === Entities.CUSTOMERS;
+    if (shouldSetEntity) {
+      setValues(state.entityBody);
+    }
+  }, [state.entityBody]);
 
   return (
     <form>
@@ -30,6 +44,7 @@ export const UpdateCustomerForm = () => {
           type="text"
           placeholder="First Name"
           onChange={onChange}
+          value={(values as UpdateCustomerBody).first_name}
         />
         <label>Last Name: </label>
         <input
@@ -38,6 +53,7 @@ export const UpdateCustomerForm = () => {
           type="text"
           placeholder="Last Name"
           onChange={onChange}
+          value={(values as UpdateCustomerBody).last_name}
         />
         <label>Email: </label>
         <input
@@ -46,12 +62,15 @@ export const UpdateCustomerForm = () => {
           type="email"
           placeholder="Email"
           onChange={onChange}
+          value={(values as UpdateCustomerBody).email}
         />
         <div>
           <label>Gender: </label>
           <select onChange={onChange}>
             {Object.values(GenderEnum).map((gender: string) => (
-              <option value={gender}>{gender}</option>
+              <option value={(values as UpdateCustomerBody).gender ?? gender}>
+                {gender}
+              </option>
             ))}
           </select>
         </div>
@@ -62,6 +81,7 @@ export const UpdateCustomerForm = () => {
           type="text"
           placeholder="Country"
           onChange={onChange}
+          value={(values as UpdateCustomerBody).country}
         />
         <label>City: </label>
         <input
@@ -70,6 +90,7 @@ export const UpdateCustomerForm = () => {
           type="text"
           placeholder="City"
           onChange={onChange}
+          value={(values as UpdateCustomerBody).city}
         />
         <label>Street: </label>
         <input
@@ -78,6 +99,7 @@ export const UpdateCustomerForm = () => {
           type="text"
           placeholder="Street"
           onChange={onChange}
+          value={(values as UpdateCustomerBody).street}
         />
         <label>Phone Number: </label>
         <input
@@ -86,6 +108,7 @@ export const UpdateCustomerForm = () => {
           type="text"
           placeholder="Phone Number"
           onChange={onChange}
+          value={(values as UpdateCustomerBody).phone}
         />
       </div>
     </form>

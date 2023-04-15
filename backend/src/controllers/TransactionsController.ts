@@ -10,8 +10,8 @@ export class TransactionsController {
     const transaction = await Transaction.create({
       total_price,
       currency,
-      credit_card_type,
-      credit_card_number,
+      credit_card_type: credit_card_type ?? null,
+      credit_card_number: credit_card_number ?? null,
       customer_id,
     });
     res.send(transaction);
@@ -22,8 +22,8 @@ export class TransactionsController {
     const { total_price, currency } = req.body as UpdateTransactionDTO;
     await Transaction.update(
       {
-        total_price,
-        currency,
+        total_price: total_price ?? null,
+        currency: currency ?? null,
       },
       {
         where: { id: transactionId },

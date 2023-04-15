@@ -14,8 +14,7 @@ export class ApiAervice {
       body: JSON.stringify(ApiAervice.body),
     };
     try {
-      const result = await fetch(url, requestOptions);
-      console.log(result);
+      await fetch(url, requestOptions);
     } catch (e) {
       console.log(e);
     }
@@ -29,19 +28,27 @@ export class ApiAervice {
       body: JSON.stringify(ApiAervice.body),
     };
     try {
-      const result = await fetch(url, requestOptions);
-      console.log(result);
+      await fetch(url, requestOptions);
     } catch (e) {
       console.log(e);
     }
   }
 
   public static async delete() {
-    console.log("delete", this.entity, this.entityId, this.body);
+    const url = `${ApiAervice.url}/${ApiAervice.entity}/${ApiAervice.entityId}`;
+    const requestOptions = {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    };
+
+    try {
+      await fetch(url, requestOptions);
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   public static async getAll(): Promise<any[] | undefined> {
-    console.log(ApiAervice.entity, "ApiAervice.entity");
     const url = `${ApiAervice.url}/${ApiAervice.entity}`;
     const requestOptions = {
       method: "GET",
@@ -50,7 +57,21 @@ export class ApiAervice {
     try {
       const result = await fetch(url, requestOptions);
       const entities = await result.json();
-      console.log(entities, "from getAll");
+      return entities;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  public static async getAllCutomers(): Promise<any[] | undefined> {
+    const url = `${ApiAervice.url}/customers`;
+    const requestOptions = {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    };
+    try {
+      const result = await fetch(url, requestOptions);
+      const entities = await result.json();
       return entities;
     } catch (e) {
       console.log(e);
@@ -67,5 +88,9 @@ export class ApiAervice {
 
   public static setEntityId(entityId: number) {
     ApiAervice.entityId = entityId;
+  }
+
+  public static getbody(): Record<string, any> {
+    return ApiAervice.body;
   }
 }

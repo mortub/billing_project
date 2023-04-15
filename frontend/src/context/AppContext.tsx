@@ -11,8 +11,10 @@ interface Props {
 
 const initialState = {
   entity: Entities.CUSTOMERS,
-  action: Actions.CREATE
-}
+  action: Actions.CREATE,
+  entityBody: {},
+  entities: [],
+};
 
 export const AppContext = React.createContext<StateAndDispatch | null>(null);
 
@@ -20,7 +22,7 @@ export const AppProvider: React.FC<Props> = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
   return (
-    <AppContext.Provider value={{state, dispatch}}>
+    <AppContext.Provider value={{ state, dispatch }}>
       {children}
     </AppContext.Provider>
   );

@@ -6,8 +6,8 @@ export class Transaction extends Model {
   declare id: number;
   declare total_price: number;
   declare currency: string;
-  declare cerdit_card_type: string;
-  declare cerdit_card_number: number;
+  declare credit_card_type: string;
+  declare credit_card_number: number;
   declare customer_id: string;
 }
 
@@ -20,14 +20,16 @@ Transaction.init(
     },
     total_price: {
       type: DataTypes.DECIMAL,
+      allowNull: false,
     },
     currency: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
-    cerdit_card_type: {
+    credit_card_type: {
       type: DataTypes.STRING,
     },
-    cerdit_card_number: {
+    credit_card_number: {
       type: DataTypes.STRING,
     },
     customer_id: {

@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { useForm } from "../hooks/useForm";
 import { UpdateTransactionBody } from "../@types/UpdateTransactionBody";
+import { AppContext } from "../context/AppContext";
+import { StateAndDispatch } from "../@types/StateAndDispatchType";
+import { Actions } from "../@types/enums/ActionsEnum";
+import { Entities } from "../@types/enums/EntitiesEnum";
 
 export const UpdateTransactionForm = () => {
   const initialState: UpdateTransactionBody = {
@@ -8,7 +12,16 @@ export const UpdateTransactionForm = () => {
     currency: "",
   };
 
-  const { onChange, values } = useForm(initialState);
+  const { onChange, values, setValues } = useForm(initialState);
+  const { state } = useContext(AppContext) as StateAndDispatch;
+
+  useEffect(() => {
+    const shouldSetEntity =
+      state.action === Actions.UPDATE && state.entity === Entities.TRANSACTIONS;
+    if (shouldSetEntity) {
+      setValues(state.entityBody);
+    }
+  }, [state.entityBody]);
 
   return (
     <form>
@@ -19,9 +32,9 @@ export const UpdateTransactionForm = () => {
           name="total_price"
           id="total_price"
           type="number"
-          step="0.1"
           placeholder="Total Price"
           onChange={onChange}
+          value={(values as UpdateTransactionBody).total_price}
         />
         <label>Currency: </label>
         <input
@@ -30,6 +43,7 @@ export const UpdateTransactionForm = () => {
           type="text"
           placeholder="Currency"
           onChange={onChange}
+          value={(values as UpdateTransactionBody).currency}
         />
       </div>
     </form>
