@@ -1,3 +1,5 @@
+import "../styles/form.scss";
+import "../styles/selectList.scss";
 import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "../hooks/useForm";
 import { CreateTransactionBody } from "../@types/CreateTransactionBody";
@@ -6,6 +8,7 @@ import { Actions } from "../@types/enums/ActionsEnum";
 import { Entities } from "../@types/enums/EntitiesEnum";
 import { AppContext } from "../context/AppContext";
 import { StateAndDispatch } from "../@types/StateAndDispatchType";
+import { customersFields } from "../@types/constants/SelectListFields";
 
 export const CreateTransactionForm = () => {
   const initialState: CreateTransactionBody = {
@@ -16,9 +19,9 @@ export const CreateTransactionForm = () => {
     customer_id: 0,
   };
 
-  const { onChange, values } = useForm(initialState);
+  const { onChange } = useForm(initialState);
   const [customers, setCustomers] = useState([] as any[]);
-  const { state, dispatch } = useContext(AppContext) as StateAndDispatch;
+  const { state } = useContext(AppContext) as StateAndDispatch;
 
   useEffect(() => {
     const shouldFetchCustomers =
@@ -42,6 +45,7 @@ export const CreateTransactionForm = () => {
   const itemToString = (item: Record<string, any>) => {
     let string = "";
     for (const [key, value] of Object.entries(item)) {
+      if (!customersFields.includes(key)) continue;
       const title = key[0].toUpperCase() + key.slice(1).replace("_", " ");
       string += `${title}: ${value}, `;
     }
@@ -58,8 +62,8 @@ export const CreateTransactionForm = () => {
 
   return (
     <form>
-      <label>Create Transaction</label>
-      <div>
+      <label className="form-header">Create Transaction</label>
+      <div className="form-body">
         <label>Total Price: </label>
         <input
           name="total_price"
@@ -96,12 +100,11 @@ export const CreateTransactionForm = () => {
           onChange={onChange}
           required
         />
+        <div className="list-body">
+          <label>Select the Customer that made the transaction:</label>
+          <select onChange={customerPicked}>{renderCustomers()}</select>
+        </div>
       </div>
-
-      <>
-        <h1>Select the Customer that made the transaction:</h1>
-        <select onChange={customerPicked}>{renderCustomers()}</select>
-      </>
     </form>
   );
 };

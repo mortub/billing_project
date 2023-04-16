@@ -1,9 +1,15 @@
+import "../styles/selectList.scss";
 import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import { StateAndDispatch } from "../@types/StateAndDispatchType";
 import { Actions } from "../@types/enums/ActionsEnum";
 import { ApiAervice } from "../services/ApiService";
 import { ReducerActionTypes } from "../@types/enums/ReducerActionsEnum";
+import { Entities } from "../@types/enums/EntitiesEnum";
+import {
+  customersFields,
+  transactionsFields,
+} from "../@types/constants/SelectListFields";
 
 export const EntitySelectList = () => {
   const { state, dispatch } = useContext(AppContext) as StateAndDispatch;
@@ -30,8 +36,13 @@ export const EntitySelectList = () => {
   }, [state.action, state.entity]);
 
   const itemToString = (item: Record<string, any>) => {
+    const fields =
+      state.entity === Entities.CUSTOMERS
+        ? customersFields
+        : transactionsFields;
     let string = "";
     for (const [key, value] of Object.entries(item)) {
+      if (!fields.includes(key)) continue;
       const title = key[0].toUpperCase() + key.slice(1).replace("_", " ");
       string += `${title}: ${value}, `;
     }
@@ -60,12 +71,12 @@ export const EntitySelectList = () => {
   return (
     <div>
       {(state.action === Actions.DELETE || state.action === Actions.UPDATE) && (
-        <>
-          <h1>
+        <div className="list-body">
+          <label>
             Select From {state.entity} an Item to {state.action}
-          </h1>
+          </label>
           <select onChange={entityPicked}>{renderEntities()}</select>
-        </>
+        </div>
       )}
     </div>
   );

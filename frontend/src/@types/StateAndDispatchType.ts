@@ -1,5 +1,5 @@
 import { AppContextType } from "./AppContextType";
-import { AppReducerAction } from "./AppResucerActionType";
+import { AppReducerAction } from "./AppReducerActionType";
 
 export type StateAndDispatch = {
   state: AppContextType;

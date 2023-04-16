@@ -1,3 +1,4 @@
+import "../styles/form.scss";
 import React from "react";
 import { GenderEnum } from "../@types/enums/GenderEnum";
 import { CreateCustomerBody } from "../@types/CreateCustomerBody";
@@ -15,12 +16,13 @@ export const CreateCustomerForm = () => {
     phone: "",
   };
 
-  const { onChange, values } = useForm(initialState);
+  const { onChange } = useForm(initialState);
 
   return (
     <form>
-      <label>Create Customer</label>
-      <div>
+      <label className="form-header">Create Customer</label>
+
+      <div className="form-body">
         <label>First Name: </label>
         <input
           name="first_name"

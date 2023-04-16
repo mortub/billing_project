@@ -25,8 +25,8 @@ export const UpdateTransactionForm = () => {
 
   return (
     <form>
-      <label>Update Transaction</label>
-      <div>
+      <label className="form-header">Update Transaction</label>
+      <div className="form-body">
         <label>Total Price: </label>
         <input
           name="total_price"

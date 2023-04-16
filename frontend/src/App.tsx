@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import { ActionButton } from "./components/ActionButton";
 import { ActionToggle } from "./components/ActionToggle";
 import { EntityForm } from "./components/EntityForm";
@@ -10,7 +10,7 @@ import { AppProvider } from "./context/AppContext";
 function App() {
   return (
     <AppProvider>
-      <div>
+      <div className="App">
         <EntityToggle />
         <ActionToggle />
         <EntityForm />

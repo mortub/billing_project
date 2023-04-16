@@ -1,3 +1,4 @@
+import "../styles/form.scss";
 import React, { useContext, useEffect } from "react";
 import { GenderEnum } from "../@types/enums/GenderEnum";
 import { useForm } from "../hooks/useForm";
@@ -34,9 +35,8 @@ export const UpdateCustomerForm = () => {
 
   return (
     <form>
-      <label>Update Customer</label>
-
-      <div>
+      <label className="form-header">Update Customer</label>
+      <div className="form-body">
         <label>First Name: </label>
         <input
           name="first_name"
