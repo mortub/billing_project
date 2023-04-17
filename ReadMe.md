@@ -47,18 +47,28 @@ The possible actions are:
 
 #### Create
 
+![create](https://user-images.githubusercontent.com/48517439/232486468-1f89ee96-866b-46e4-85e2-3405ed628a7a.gif)
+
+
 When creating a new Customer or Transaction, you need to provide the information required on the form.
 For a new Transaction, you also have to choose the Customer that made the Transaction from the list of existent Customers.
 
 #### Update
 
+![update customer](https://user-images.githubusercontent.com/48517439/232486575-73db28b7-1660-4c39-804e-20634ea6001e.png)
+
 When updating a Customer or Transaction, you need to choose from the list of existent Customers or Transactions the item you wish to update.
 
 #### Delete
 
+![delete customer](https://user-images.githubusercontent.com/48517439/232486638-d8f7cc58-c2d6-4678-bb47-2777d71be485.png)
+
 When deleting a Customer or Transaction, you need to choose from the list of existent Customers or Transactions the item you wish to delete.
 
 #### Get All
+
+![get transactions](https://user-images.githubusercontent.com/48517439/232486933-2ba9d557-1700-457f-829c-fd7d6ac21cdf.gif)
+
 
 After pressing 'Get All', you will get a table of all Customers or Transactions, according to the entity you chose.
 
