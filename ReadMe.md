@@ -2,6 +2,24 @@
 
 This project is a Full Stack project , which enables making CRUD operations on the entities of Customers and Transactions.
 
+## Table of Content
+- [Prerequisitions](https://github.com/mortub/billing_project/edit/main/ReadMe.md#prerequisitions)
+- [How to install](https://github.com/mortub/billing_project/edit/main/ReadMe.md#how-to-install)
+- [How to Use](https://github.com/mortub/billing_project/edit/main/ReadMe.md#how-to-use)
+- - [Create](https://github.com/mortub/billing_project/edit/main/ReadMe.md#create)
+- - [Update](https://github.com/mortub/billing_project/edit/main/ReadMe.md#update)
+- - [Delete](https://github.com/mortub/billing_project/edit/main/ReadMe.md#delete)
+- - [Get All](https://github.com/mortub/billing_project/edit/main/ReadMe.md#get-all)
+- [Project Structure](https://github.com/mortub/billing_project/edit/main/ReadMe.md#project-structure)
+- - [Back End](https://github.com/mortub/billing_project/edit/main/ReadMe.md#back-end)
+- - [Front End](https://github.com/mortub/billing_project/edit/main/ReadMe.md#front-end)
+- [Explanation for Choices Made](https://github.com/mortub/billing_project/edit/main/ReadMe.md#front-end)
+- - [Back End](https://github.com/mortub/billing_project/edit/main/ReadMe.md#back-end-1)
+- - [Front End](https://github.com/mortub/billing_project/edit/main/ReadMe.md#front-end-1)
+-  [Features to  Add](https://github.com/mortub/billing_project/edit/main/ReadMe.md#features-to--add)
+- - [Back End](https://github.com/mortub/billing_project/edit/main/ReadMe.md#back-end-2)
+- - [Front End](https://github.com/mortub/billing_project/edit/main/ReadMe.md#front-end-2)
+
 ### Prerequisitions
 You need to have [Docker](https://www.docker.com/) installed on your computer.
 
