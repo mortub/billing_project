@@ -14,10 +14,10 @@ This project is a Full Stack project , which enables making CRUD operations on t
 - [Project Structure](https://github.com/mortub/billing_project#project-structure)
 - - [Back End](https://github.com/mortub/billing_project#back-end)
 - - [Front End](https://github.com/mortub/billing_project#front-end)
-- [Explanation for Choices Made](https://github.com/mortub/billing_project#front-end)
+- [Explanation for Choices Made](https://github.com/mortub/billing_project#explanation-for-choices-made)
 - - [Back End](https://github.com/mortub/billing_project#back-end-1)
 - - [Front End](https://github.com/mortub/billing_project#front-end-1)
-- [Features to Add](https://github.com/mortub/billing_project#features-to--add)
+- [Features to Add](https://github.com/mortub/billing_project#features-to-add)
 - - [Back End](https://github.com/mortub/billing_project#back-end-2)
 - - [Front End](https://github.com/mortub/billing_project#front-end-2)
 
